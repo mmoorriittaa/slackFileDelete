@@ -1,0 +1,61 @@
+slackのファイル一括削除。
+警告無しで、ファイルを一括削除するので注意！！
+
+使用方法：
+
+１．プロジェクト直下のconfフォルダと、
+　　targetフォルダ配下の「slack_file_delete.jar」ファイルと同じディレクトリ（使用するディレクトリ）に配置。
+　　　ディレクトリイメージ：
+　　　slack_file_delete.jar
+　　　conf
+
+　　※Mavenビルド時はゴールに「package」を指定。
+　　※conf/slack_file_delete.propertiesがある事。
+
+
+２．conf/slack_file_delete.propertiesの設定を行う。
+　　２－１．slack_token（必須）
+　　https://api.slack.com/custom-integrations/legacy-tokens
+　　ここでtokenを取得。
+　　プロパティファイル(slack_file_delete.properties)の「slack_token」に取得したトークンを指定。
+　　例）slack_token=xxxx-xxx～～～～
+
+　　２－２．user_id
+　　https://api.slack.com/methods/auth.test/test
+　　ここの「Test Method」実行。
+　　結果の「user_id」をプロパティファイル(slack_file_delete.properties)の「user_id」に指定。
+　　※後述のoptionによっては不要。
+
+　　２－３．to_date
+　　○日前のデータを削除する用、数値を入れる。入れないと、期間指定なしで全部消えるので注意。
+
+　　２－４．option
+　　all指定で対象ユーザを絞らずにファイル削除する。（all以外の場合はuser_idで対象を絞る）
+
+　　２－５．channel_id
+　　対象ファイルをチャンネル指定出来る。（未検証）
+
+
+３．コマンドプロンプト等でjava実行。
+　　例）
+　　java -jar slack_file_delete.jar
+
+
+これでslackのファイルが消える。
+※1回の実行でMAX100件のみ削除
+　100件以上の処理も作ってみたものの、検証してないので、コメントアウトしてる。
+
+
+【TODO】
+100件(デフォルトの取得件数)を超えた場合の動作の検証。
+（100ファイル以上上げるのが面倒で、、）
+
+↓面倒でやってない。
+ビルド時、properties、使い方.txtをtargetへコピー。
+jar、properties、使い方.txtをまとめてzip化。
+
+コンソールログではなく、ログファイルに外だしした方がいいかな？
+
+削除の対象だけチェックする様に、削除オプションがあってもいいかも。
+起動時の引数とかで。
+

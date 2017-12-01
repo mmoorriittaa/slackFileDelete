@@ -1,0 +1,5 @@
+jp\co\slack_delete\model\Paging.class
+jp\co\slack_delete\model\SlackFileList.class
+jp\co\slack_delete\SlackFailDelete.class
+jp\co\slack_delete\utils\CommonUtils.class
+jp\co\slack_delete\model\SlackFile.class
