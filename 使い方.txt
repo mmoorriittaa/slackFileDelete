@@ -3,14 +3,14 @@ slackのファイル一括削除。
 
 使用方法：
 
-１．プロジェクト直下のconfフォルダと、
-　　targetフォルダ配下の「slack_file_delete.jar」ファイルと同じディレクトリ（使用するディレクトリ）に配置。
-　　　ディレクトリイメージ：
+１．プロジェクト直下の「conf」ディレクトリと、
+　　target配下の「slack_file_delete.jar」を同じディレクトリ（使用するディレクトリ）に配置。
+　　ディレクトリイメージ：
 　　　slack_file_delete.jar
 　　　conf
+　　※conf/slack_file_delete.propertiesがある事。
 
 　　※Mavenビルド時はゴールに「package」を指定。
-　　※conf/slack_file_delete.propertiesがある事。
 
 
 ２．conf/slack_file_delete.propertiesの設定を行う。
