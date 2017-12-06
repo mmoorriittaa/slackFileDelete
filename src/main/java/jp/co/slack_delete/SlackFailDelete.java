@@ -31,7 +31,7 @@ public class SlackFailDelete {
 		// 自身のファイルリストを取得し、7日以前のファイルは削除する。
 		SlackFileList sfl = getMyFileList();
 
-		if (sfl != null && sfl.getOk() && sfl.getPaging().getCount() > 0) {
+		if (sfl != null && sfl.getOk() && sfl.getPaging().getTotal() > 0) {
 			fileDeleteXDaysAgo(sfl);
 
 			//			TODO 動作チェック出来てない。
